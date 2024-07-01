@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Tasky file project for benmore django project</title>
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -149,5 +150,33 @@
     </div>
 </section>
     </section>
+<ul id="display">
+
+</ul>
+
+<script>
+    $(document).ready(function(){
+        setInterval(function(){
+            $.ajax({
+                type: 'GET',
+                url: "{% url 'getprofile' %}",
+                success: function(response){
+
+
+                    $("#display").empty();  // Corrected the selector to be a string
+                    for(var key in response.profiles) {
+                        var temp = "<li>" + response.profiles[key].name + "</li>";
+                        $("#display").append(temp);  // Corrected the selector to be a string
+                    }
+                },
+                error: function(response){
+                    alert("error getting data");
+                }
+            });
+        }, 1000);
+    });
+</script>
+
+
 </body>
 </html>
