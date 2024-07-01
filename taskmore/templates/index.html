@@ -1,0 +1,159 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Tasky file project for benmore django project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .body {
+            background-color: #637DD8;
+            font-family: "Miriam Libre", sans-serif;
+            border-bottom:100px;
+        }
+    </style>
+</head>
+<body>
+<section class="bg-blue-600 font-miriam-libre border-b-100">
+<section class="bg-white min-h-screen w-11/12 mx-auto my-4  "  >
+    <div class="float-left h-full w-80 fixed" style="margin-bottom: 450px;">
+        <img src="{% static 'taskmore.png' %}" class="h-24 w-58 mx-auto my-8">
+        <div class="h-18 w-72 mx-auto my-4 rounded-lg bg-blue-600 text-white text-xl flex items-center">
+            <i class="fa fa-home mx-2" style="font-size:48px;" aria-hidden="true"></i> Dashboard
+        </div>
+        <div class="h-18 w-72 mx-auto my-4 rounded-lg bg-white text-black text-xl flex items-center">
+            <i class="fa fa-tasks mx-2" style="font-size:48px;" aria-hidden="true"></i> Task
+        </div>
+        <div class="h-18 w-72 mx-auto my-4 rounded-lg bg-white text-black text-xl flex items-center">
+            <i class="fa fa-calendar mx-2" style="font-size:48px;" aria-hidden="true"></i> Calendar
+        </div>
+        <div class="h-18 w-72 mx-auto my-4 rounded-lg bg-white text-black text-xl flex items-center">
+            <i class="fa fa-users mx-2" style="font-size:48px;" aria-hidden="true"></i> Users
+        </div>
+        <img src="{% static 'upgrade.png' %}" class="w-64 h-36 mx-auto my-8">
+    </div>
+    <div class="float-left ml-96 mt-14 flex items-center">
+        <input type="text" placeholder="search task" class="w-96 h-12 rounded-lg bg-gray-300 border border-gray-900 p-2">
+        <i class="fa fa-search mx-2" style="font-size:25px;" aria-hidden="true"></i>
+        <i class="fa fa-comments ml-72" style="font-size:25px;" aria-hidden="true"></i>
+        <i class="fa fa-bell ml-8" style="font-size:25px;" aria-hidden="true"></i>
+        <i class="fa fa-user-circle-o ml-8" style="font-size:25px;" aria-hidden="true"></i>
+    </div>
+    <div class="float-left ml-96 mt-8 flex items-center">
+        <div class="border border-black w-28 rounded-lg h-6 flex items-center justify-center p-2 text-lg">
+            <i class="fa fa-th-large mr-1" aria-hidden="true"></i> preview
+        </div>
+        <div class="border border-black w-28 rounded-lg h-6 flex items-center justify-center p-2 text-lg ml-5">
+            <i class="fa fa-sort-alpha-asc mr-1" aria-hidden="true"></i> sort
+        </div>
+        <div class="border border-black w-28 rounded-lg h-6 flex items-center justify-center p-2 text-lg ml-5">
+            <i class="fa fa-list-ol mr-1" aria-hidden="true"></i> filter
+        </div>
+        <img src="{% static 'people.png' %}" class="w-40 h-14 mx-auto my-8 ml-20">
+        <button class="w-40 h-14 rounded-lg bg-blue-600 text-white text-xl ml-8 flex items-center justify-center">
+            <i class="fa fa-plus mr-1" aria-hidden="true"></i> Add task
+        </button>
+    </div>
+    <div class="float-left w-72 ml-80 mt-12">
+        <div class="w-72 border border-gray-900 rounded-md">
+            in progress (3) <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i>
+        </div>
+        <div class="test">
+            <button class="w-16 h-4 float-left rounded-md border-none bg-red-400 m-2 text-xs">High</button>
+            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs text-purple-600 flex items-center">
+                <i class="fa fa-clock-o mr-1" aria-hidden="true"></i> 6:00pm
+            </button>
+            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs">UX design</button>
+            <div class="w-66 h-38 float-left rounded-md border-none bg-gray-200 mt-2 mx-2">
+                <p class="text-xl font-bold mx-2"> User Flow <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i></p>
+                <p class="text-xs mt-1 mx-2"> Designing a dashboard that involves creating a visual interface that ....</p>
+                <p class="border border-black w-14 rounded-md mx-2 flex items-center justify-center"> <i class="fa fa-filter" aria-hidden="true"></i> 0/3</p>
+                <img src="{% static 'peeps.png' %}" class="w-22 h-6 mt-1 mx-2 float-left">
+                <i class="fa fa-eye ml-24" aria-hidden="true"></i>
+                <i class="fa fa-trash ml-2" aria-hidden="true"></i>
+                <i class="fa fa-pencil ml-2" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="test">
+            <button class="w-16 h-4 float-left rounded-md border-none bg-red-400 m-2 text-xs">High</button>
+            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs text-purple-600 flex items-center">
+                <i class="fa fa-clock-o mr-1" aria-hidden="true"></i> 6:00pm
+            </button>
+            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs">UX design</button>
+            <div class="w-66 h-38 float-left rounded-md border-none bg-gray-200 mt-2 mx-2">
+                <p class="text-xl font-bold mx-2"> User Flow <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i></p>
+                <p class="text-xs mt-1 mx-2"> Designing a dashboard that involves creating a visual interface that ....</p>
+                <p class="border border-black w-14 rounded-md mx-2 flex items-center justify-center"> <i class="fa fa-filter" aria-hidden="true"></i> 0/3</p>
+                <img src="{% static 'peeps.png' %}" class="w-22 h-6 mt-1 mx-2 float-left">
+                <i class="fa fa-eye ml-24" aria-hidden="true"></i>
+                <i class="fa fa-trash ml-2" aria-hidden="true"></i>
+                <i class="fa fa-pencil ml-2" aria-hidden="true"></i>
+            </div>
+        </div>
+         <div class="test">
+            <button class="w-16 h-4 float-left rounded-md border-none bg-red-400 m-2 text-xs">High</button>
+            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs text-purple-600 flex items-center">
+                <i class="fa fa-clock-o mr-1" aria-hidden="true"></i> 6:00pm
+            </button>
+            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs">UX design</button>
+            <div class="w-66 h-38 float-left rounded-md border-none bg-gray-200 mt-2 mx-2">
+                <p class="text-xl font-bold mx-2"> User Flow <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i></p>
+                <p class="text-xs mt-1 mx-2"> Designing a dashboard that involves creating a visual interface that ....</p>
+                <p class="border border-black w-14 rounded-md mx-2 flex items-center justify-center"> <i class="fa fa-filter" aria-hidden="true"></i> 0/3</p>
+                <img src="{% static 'peeps.png' %}" class="w-22 h-6 mt-1 mx-2 float-left">
+                <i class="fa fa-eye ml-24" aria-hidden="true"></i>
+                <i class="fa fa-trash ml-2" aria-hidden="true"></i>
+                <i class="fa fa-pencil ml-2" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+    <div class="float-left w-72 ml-4 mt-12 mr-2">
+        <div class="w-72 border border-gray-900 rounded-md">
+            completed task(9) <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i>
+        </div>
+        <div class="test">
+            <button class="w-16 h-4 float-left rounded-md border-none bg-red-400 m-2 text-xs">High</button>
+            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs text-purple-600 flex items-center">
+                <i class="fa fa-clock-o mr-1" aria-hidden="true"></i> 6:00pm
+            </button>
+            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs">UX design</button>
+            <div class="w-66 h-38 float-left rounded-md border-none bg-gray-200 mt-2 mx-2">
+                <p class="text-xl font-bold mx-2"> User Flow <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i></p>
+                <p class="text-xs mt-1 mx-2"> Designing a dashboard that involves creating a visual interface that ....</p>
+                <p class="border border-black w-14 rounded-md mx-2 flex items-center justify-center"> <i class="fa fa-filter" aria-hidden="true"></i> 0/3</p>
+                <img src="{% static 'peeps.png' %}" class="w-22 h-6 mt-1 mx-2 float-left">
+                <i class="fa fa-eye ml-24" aria-hidden="true"></i>
+                <i class="fa fa-trash ml-2" aria-hidden="true"></i>
+                <i class="fa fa-pencil ml-2" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+    <div class="float-left w-72 ml-90 mt-14">
+        <div class="w-72 border border-gray-900 rounded-md">
+            over due (7) <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i>
+        </div>
+        <div class="test">
+            <button class="w-16 h-4 float-left rounded-md border-none bg-red-400 m-2 text-xs">High</button>
+            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs text-purple-600 flex items-center">
+                <i class="fa fa-clock-o mr-1" aria-hidden="true"></i> 6:00pm
+            </button>
+            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs">UX design</button>
+            <div class="w-66 h-38 float-left rounded-md border-none bg-gray-200 mt-2 mx-2">
+                <p class="text-xl font-bold mx-2"> User Flow <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i></p>
+                <p class="text-xs mt-1 mx-2"> Designing a dashboard that involves creating a visual interface that ....</p>
+                <p class="border border-black w-14 rounded-md mx-2 flex items-center justify-center"> <i class="fa fa-filter" aria-hidden="true"></i> 0/3</p>
+                <img src="{% static 'peeps.png' %}" class="w-22 h-6 mt-1 mx-2 float-left">
+                <i class="fa fa-eye ml-24" aria-hidden="true"></i>
+                <i class="fa fa-trash ml-2" aria-hidden="true"></i>
+                <i class="fa fa-pencil ml-2" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</section>
+    </section>
+</body>
+</html>
