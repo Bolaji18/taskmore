@@ -1,4 +1,4 @@
-#Task Management Dashboard
+##Task Management Dashboard
 
 This project implements a task management dashboard using Django for the backend and HTML, Tailwind CSS, and jQuery for the frontend.
 ## Table of Contents
