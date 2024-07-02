@@ -11,5 +11,11 @@ def getprofile(request):
     infos= info.objects.all()
     return JsonResponse({"infos":list(infos.values())})
 def load_data(request):
-    infos = info.objects.all()
+    infos = info.objects.filter(status="In Progress")
+    return render(request, 'loaddata.html', {'infos': infos})
+def completed(request):
+    infos = info.objects.filter(status="Completed")
+    return render(request, 'loaddata.html', {'infos': infos})
+def Overdue(request):
+    infos = info.objects.filter(status="Overdue")
     return render(request, 'loaddata.html', {'infos': infos})

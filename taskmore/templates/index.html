@@ -62,22 +62,7 @@
         <div class="w-72 border border-gray-900 rounded-md">
             in progress (3) <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i>
         </div>
-        <div class="test">
-            <button class="w-16 h-4 float-left rounded-md border-none bg-red-400 m-2 text-xs">High</button>
-            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs text-purple-600 flex items-center">
-                <i class="fa fa-clock-o mr-1" aria-hidden="true"></i> 6:00pm
-            </button>
-            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs">UX design</button>
-            <div class="w-66 h-38 float-left rounded-md border-none bg-gray-200 mt-2 mx-2">
-                <p class="text-xl font-bold mx-2"> User Flow <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i></p>
-                <p class="text-xs mt-1 mx-2"> Designing a dashboard that involves creating a visual interface that ....</p>
-                <p class="border border-black w-14 rounded-md mx-2 flex items-center justify-center"> <i class="fa fa-filter" aria-hidden="true"></i> 0/3</p>
-                <img src="{% static 'peeps.png' %}" class="w-22 h-6 mt-1 mx-2 float-left">
-                <i class="fa fa-eye ml-24" aria-hidden="true"></i>
-                <i class="fa fa-trash ml-2" aria-hidden="true"></i>
-                <i class="fa fa-pencil ml-2" aria-hidden="true"></i>
-            </div>
-        </div>
+
         <div id="data-container">
 
         </div>
@@ -86,42 +71,18 @@
         <div class="w-72 border border-gray-900 rounded-md">
             completed task(9) <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i>
         </div>
-        <div class="test">
-            <button class="w-16 h-4 float-left rounded-md border-none bg-red-400 m-2 text-xs">High</button>
-            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs text-purple-600 flex items-center">
-                <i class="fa fa-clock-o mr-1" aria-hidden="true"></i> 6:00pm
-            </button>
-            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs">UX design</button>
-            <div class="w-66 h-38 float-left rounded-md border-none bg-gray-200 mt-2 mx-2">
-                <p class="text-xl font-bold mx-2"> User Flow <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i></p>
-                <p class="text-xs mt-1 mx-2"> Designing a dashboard that involves creating a visual interface that ....</p>
-                <p class="border border-black w-14 rounded-md mx-2 flex items-center justify-center"> <i class="fa fa-filter" aria-hidden="true"></i> 0/3</p>
-                <img src="{% static 'peeps.png' %}" class="w-22 h-6 mt-1 mx-2 float-left">
-                <i class="fa fa-eye ml-24" aria-hidden="true"></i>
-                <i class="fa fa-trash ml-2" aria-hidden="true"></i>
-                <i class="fa fa-pencil ml-2" aria-hidden="true"></i>
-            </div>
+            <div id="completed">
+
+        </div>
         </div>
     </div>
     <div class="float-left w-72 ml-90 mt-14">
         <div class="w-72 border border-gray-900 rounded-md">
             over due (7) <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i>
         </div>
-        <div class="test">
-            <button class="w-16 h-4 float-left rounded-md border-none bg-red-400 m-2 text-xs">High</button>
-            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs text-purple-600 flex items-center">
-                <i class="fa fa-clock-o mr-1" aria-hidden="true"></i> 6:00pm
-            </button>
-            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs">UX design</button>
-            <div class="w-66 h-38 float-left rounded-md border-none bg-gray-200 mt-2 mx-2">
-                <p class="text-xl font-bold mx-2"> User Flow <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i></p>
-                <p class="text-xs mt-1 mx-2"> Designing a dashboard that involves creating a visual interface that ....</p>
-                <p class="border border-black w-14 rounded-md mx-2 flex items-center justify-center"> <i class="fa fa-filter" aria-hidden="true"></i> 0/3</p>
-                <img src="{% static 'peeps.png' %}" class="w-22 h-6 mt-1 mx-2 float-left">
-                <i class="fa fa-eye ml-24" aria-hidden="true"></i>
-                <i class="fa fa-trash ml-2" aria-hidden="true"></i>
-                <i class="fa fa-pencil ml-2" aria-hidden="true"></i>
-            </div>
+         <div id="Overdue">
+
+        </div>
         </div>
     </div>
 </section>
@@ -152,7 +113,51 @@
             setInterval(loadData, 1000);
         });
     </script>
+<script>
+        $(document).ready(function(){
+            function loadData() {
+                $.ajax({
+                    url: '{% url "completed" %}',
+                    type: 'GET',
+                    success: function(data) {
+                        $('#completed').html(data);
+                    },
+                    error: function(error) {
+                        console.log("Error:", error);
+                    }
+                });
+            }
 
+            // Load data immediately when the page loads
+            loadData();
+
+            // Set interval to reload data every second (1000 milliseconds)
+            setInterval(loadData, 1000);
+        });
+    </script>
+
+ <script>
+        $(document).ready(function(){
+            function loadData() {
+                $.ajax({
+                    url: '{% url "Overdue" %}',
+                    type: 'GET',
+                    success: function(data) {
+                        $('#Overdue').html(data);
+                    },
+                    error: function(error) {
+                        console.log("Error:", error);
+                    }
+                });
+            }
+
+            // Load data immediately when the page loads
+            loadData();
+
+            // Set interval to reload data every second (1000 milliseconds)
+            setInterval(loadData, 1000);
+        });
+    </script>
 
 </body>
 </html>
