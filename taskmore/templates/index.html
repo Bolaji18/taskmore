@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Tasky file project for benmore django project</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+
+    </style>
     
 </head>
 <body>
@@ -53,6 +57,7 @@
             <i class="fa fa-plus mr-1" aria-hidden="true"></i> Add task
         </button>
     </div>
+
     <div class="float-left w-72 ml-80 mt-12">
         <div class="w-72 border border-gray-900 rounded-md">
             in progress (3) <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i>
@@ -73,37 +78,8 @@
                 <i class="fa fa-pencil ml-2" aria-hidden="true"></i>
             </div>
         </div>
-        <div class="test">
-            <button class="w-16 h-4 float-left rounded-md border-none bg-red-400 m-2 text-xs">High</button>
-            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs text-purple-600 flex items-center">
-                <i class="fa fa-clock-o mr-1" aria-hidden="true"></i> 6:00pm
-            </button>
-            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs">UX design</button>
-            <div class="w-66 h-38 float-left rounded-md border-none bg-gray-200 mt-2 mx-2">
-                <p class="text-xl font-bold mx-2"> User Flow <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i></p>
-                <p class="text-xs mt-1 mx-2"> Designing a dashboard that involves creating a visual interface that ....</p>
-                <p class="border border-black w-14 rounded-md mx-2 flex items-center justify-center"> <i class="fa fa-filter" aria-hidden="true"></i> 0/3</p>
-                <img src="{% static 'peeps.png' %}" class="w-22 h-6 mt-1 mx-2 float-left">
-                <i class="fa fa-eye ml-24" aria-hidden="true"></i>
-                <i class="fa fa-trash ml-2" aria-hidden="true"></i>
-                <i class="fa fa-pencil ml-2" aria-hidden="true"></i>
-            </div>
-        </div>
-         <div class="test">
-            <button class="w-16 h-4 float-left rounded-md border-none bg-red-400 m-2 text-xs">High</button>
-            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs text-purple-600 flex items-center">
-                <i class="fa fa-clock-o mr-1" aria-hidden="true"></i> 6:00pm
-            </button>
-            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs">UX design</button>
-            <div class="w-66 h-38 float-left rounded-md border-none bg-gray-200 mt-2 mx-2">
-                <p class="text-xl font-bold mx-2"> User Flow <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i></p>
-                <p class="text-xs mt-1 mx-2"> Designing a dashboard that involves creating a visual interface that ....</p>
-                <p class="border border-black w-14 rounded-md mx-2 flex items-center justify-center"> <i class="fa fa-filter" aria-hidden="true"></i> 0/3</p>
-                <img src="{% static 'peeps.png' %}" class="w-22 h-6 mt-1 mx-2 float-left">
-                <i class="fa fa-eye ml-24" aria-hidden="true"></i>
-                <i class="fa fa-trash ml-2" aria-hidden="true"></i>
-                <i class="fa fa-pencil ml-2" aria-hidden="true"></i>
-            </div>
+        <div id="data-container">
+
         </div>
     </div>
     <div class="float-left w-72 ml-4 mt-12 mr-2">
@@ -154,28 +130,28 @@
 
 </ul>
 
-<script>
-    $(document).ready(function(){
-        setInterval(function(){
-            $.ajax({
-                type: 'GET',
-                url: "{% url 'getprofile' %}",
-                success: function(response){
-
-
-                    $("#display").empty();  // Corrected the selector to be a string
-                    for(var key in response.profiles) {
-                        var temp = "<li>" + response.profiles[key].name + "</li>";
-                        $("#display").append(temp);  // Corrected the selector to be a string
+ <script>
+        $(document).ready(function(){
+            function loadData() {
+                $.ajax({
+                    url: '{% url "load_data" %}',
+                    type: 'GET',
+                    success: function(data) {
+                        $('#data-container').html(data);
+                    },
+                    error: function(error) {
+                        console.log("Error:", error);
                     }
-                },
-                error: function(response){
-                    alert("error getting data");
-                }
-            });
-        }, 1000);
-    });
-</script>
+                });
+            }
+
+            // Load data immediately when the page loads
+            loadData();
+
+            // Set interval to reload data every second (1000 milliseconds)
+            setInterval(loadData, 1000);
+        });
+    </script>
 
 
 </body>

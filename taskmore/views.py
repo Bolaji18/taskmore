@@ -10,3 +10,6 @@ def home(request):
 def getprofile(request):
     infos= info.objects.all()
     return JsonResponse({"infos":list(infos.values())})
+def load_data(request):
+    infos = info.objects.all()
+    return render(request, 'loaddata.html', {'infos': infos})

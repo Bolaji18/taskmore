@@ -1,0 +1,21 @@
+{% load static %}
+{% for info in infos %}
+
+
+  <div class="test">
+            <button class="w-16 h-4 float-left rounded-md border-none bg-red-400 m-2 text-xs">{{ info.priority}}</button>
+            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs text-purple-600 flex items-center">
+                <i class="fa fa-clock-o mr-1" aria-hidden="true"></i> {{ info.due_date|slice:'-8:'}}
+            </button>
+            <button class="w-16 h-4 float-left rounded-md border-none bg-gray-300 m-2 text-xs">{{ info.category}}  </button>
+            <div class="w-66 h-38 float-left rounded-md border-none bg-gray-200 mt-2 mx-2">
+                <p class="text-xl font-bold mx-2"> {{ info.title }} <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i></p>
+                <p class="text-xs mt-1 mx-2">{{ info.description }}</p>
+                <p class="border border-black w-14 rounded-md mx-2 flex items-center justify-center"> <i class="fa fa-filter" aria-hidden="true"></i> 0/3</p>
+                <img src="{% static 'peeps.png' %}" class="w-22 h-6 mt-1 mx-2 float-left">
+                <i class="fa fa-eye ml-24" aria-hidden="true"></i>
+                <i class="fa fa-trash ml-2" aria-hidden="true"></i>
+                <i class="fa fa-pencil ml-2" aria-hidden="true"></i>
+            </div>
+        </div>
+{% endfor %}

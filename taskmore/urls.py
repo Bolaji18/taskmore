@@ -20,9 +20,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 from . import views
+from .views import load_data
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('getprofile/', views.getprofile, name='getprofile'),
+    path('load-data/', load_data, name='load_data'),
+
 ]
