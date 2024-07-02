@@ -25,7 +25,7 @@ This project implements a task management dashboard using Django for the backend
 ### Steps
 
 1. **How to fork the Repository**
-   - Navigate to the [Benmore taskmore repository](https://github.com/Bolaji18/taskmore) on GitHub.
+   - Navigate to the [Bolaji18 taskmore repository](https://github.com/Bolaji18/taskmore) on GitHub.
    - Click the "Fork" button in the top-right corner of the page to create a copy of the repository under your GitHub account.
 
 2. **How to clone the Repository**
