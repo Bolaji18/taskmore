@@ -23,6 +23,7 @@ from . import views
 from .views import load_data
 from .views import completed
 from .views import Overdue
+from .views import delete
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
@@ -30,5 +31,8 @@ urlpatterns = [
     path('load-data/', load_data, name='load_data'),
     path('completed/', completed, name='completed'),
     path('Overdue/', Overdue, name='Overdue'),
+    path('delete/', delete, name='delete'),
+    path('delete/delete/<int:id>', views.deleted, name='deleted'),
+    path('delete/<int:id>', views.deleted, name='deleted'),
 
 ]

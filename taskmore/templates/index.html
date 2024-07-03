@@ -12,7 +12,8 @@
     <title>Tasky file project for benmore django project</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-
+         body{
+        font-family: "Miriam Libre", sans-serif;}
     </style>
     
 </head>
@@ -59,7 +60,7 @@
     </div>
 
     <div class="float-left w-72 ml-80 mt-12">
-        <div class="w-72 border border-gray-900 rounded-md">
+        <div class="w-72 border border-gray-900 rounded-md font-miriam-libre text-base">
             in progress (3) <i class="fa fa-ellipsis-v float-right mr-5 mt-1" aria-hidden="true"></i>
         </div>
 
@@ -157,6 +158,27 @@
             // Set interval to reload data every second (1000 milliseconds)
             setInterval(loadData, 1000);
         });
+    </script>
+
+   <script>
+ function deleteTask(itemId) {
+            $.ajax({
+                url: '{% url "delete" %}',
+                type: 'POST',
+                data: {
+                    'item_id': itemId,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    console.log('Item deleted successfully');
+                    // Optionally remove the item from the DOM
+                    $('#item-' + itemId).remove();
+                },
+                error: function(error) {
+                    console.error('Error deleting item:', error);
+                }
+            });
+        }
     </script>
 
 </body>
