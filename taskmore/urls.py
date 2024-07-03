@@ -24,6 +24,7 @@ from .views import load_data
 from .views import completed
 from .views import Overdue
 from .views import delete
+from django.contrib.auth.views import LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
@@ -36,6 +37,7 @@ urlpatterns = [
     path('delete/<int:id>', views.deleted, name='deleted'),
     path('login/', views.user, name='log'),
     path('login/new/', views.new, name='newacc'),
-    path('create/', views.new, name='create'),
+    path('create/', views.create, name='create'),
+    path('logout', LogoutView.as_view(), name='logout'),
 
 ]

@@ -60,6 +60,15 @@ This project implements a task management dashboard using Django for the backend
 3. **Access the Application**
    - Open your browser and navigate to `http://127.0.0.1:8000`.
 
+## functions and how to use app
+ 
+1. **Click on user image at the top right corner to go to the login page**
+
+2. **Create new user through the link provided at the bottom of page, fill the input page and login to page**
+
+3. **Click on Addtask to add new task by providing the info on the page**
+
+4. **Delete the task by clicking on the delete icon at the bottom of the task**
 
 
 

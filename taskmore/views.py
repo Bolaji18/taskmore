@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
@@ -18,6 +17,11 @@ from .forms import createform
 from datetime import datetime
 
 def home(request):
+    if request.method == "POST":
+        selected = request.POST.get("query")
+        values = info.objects.filter(description__icontains=selected).values()
+        return render(request=request, template_name="loaddata.html", context={'infos': values})
+
     return render(request=request, template_name="index.html", context={})
 def getprofile(request):
     infos= info.objects.all()
@@ -93,7 +97,7 @@ def new(request):
    return render(request=request, template_name="form.html", context={"register_form":form, 'life':life, 'login':used, 'all':ball})
 
 
-def new(request):
+def create(request):
     if request.method == "POST":
         title = request.POST.get("title")
         description = request.POST.get("description")
