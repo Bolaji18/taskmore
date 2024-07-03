@@ -49,7 +49,7 @@ This project implements a task management dashboard using Django for the backend
 
 1. **Apply Migrations**
    ```bash
-   pip manage.py makemigrations
+   python manage.py makemigrations
    ```
    ```bash
    python manage.py migrate
