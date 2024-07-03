@@ -34,5 +34,8 @@ urlpatterns = [
     path('delete/', delete, name='delete'),
     path('delete/delete/<int:id>', views.deleted, name='deleted'),
     path('delete/<int:id>', views.deleted, name='deleted'),
+    path('login/', views.user, name='log'),
+    path('login/new/', views.new, name='newacc'),
+    path('create/', views.new, name='create'),
 
 ]

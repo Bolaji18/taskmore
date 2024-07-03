@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+  <title>
+    form page
+  </title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+
+</head>
+
+<body class="bg-white text-gray-900">
+
+  <section class="why_section py-12">
+    <div class="container mx-auto">
+      <div class="heading_container text-center mb-8">
+        <h2>{{all}}</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-6 mx-auto">
+          <div class="box p-6 border border-gray-300 rounded-lg bg-white">
+            <div class="detail-box">
+              <form method="POST" enctype="multipart/form-data" class="max-w-lg mx-auto p-6 border border-gray-300 rounded-lg bg-white">
+                {% csrf_token %}
+                {{welcome}}
+                <h5 class="mb-4"></h5>
+                <p>{{ register_form }} {{form}}</p>
+                <p>
+                  <input id="confirmButton" type="submit" value="{{life}}" class="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 cursor-pointer">
+                </p>
+                <p>
+                  <a href="{{new}}" class="text-blue-500">{{used}}</a>
+                </p>
+                <p><a href="{% url 'log' %}" class="text-blue-500">{{login}}</a></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end why section -->
+
+  <!-- info section -->
+  <!-- Scripts -->
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+</body>
+<head>
+  <style>
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        textarea {
+        	border: 1px #000 solid;
+        }
+  </style>
+</head>
+
+</html>
