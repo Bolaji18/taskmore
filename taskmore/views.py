@@ -49,7 +49,7 @@ def delete(request):
 def deleted (request, id):
          task = get_object_or_404(info, id=id)
          task.delete()
-         return render(request, 'index.html', {})
+         return redirect('home')
 
 
 
